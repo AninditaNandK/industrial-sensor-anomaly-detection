@@ -1,0 +1,999 @@
+evaluation_id,explanation_text,groundedness_rating_1_to_5,technical_correctness_1_to_5,clarity_rating_1_to_5,usefulness_rating_1_to_5,appropriate_uncertainty_1_to_5,contains_hallucination_0_or_1,reviewer_comments
+EVAL_001,"SUMMARY:
+A brief, short-lived deviation was detected on AIT302.Pv between 2022-11-11 11:05:00 and 11:08:00. The detector flagged a single-sensor residual above the global persistence threshold; other monitored sensors showed no residual.
+
+EVIDENCE:
+- Sensor AIT302.Pv: actual=431.19278, predicted=432.08910, absolute residual=0.89632, normalized residual=1.0605643136436227
+- Sensor FIT201.Pv: actual=2.66773462, predicted=2.66773462, absolute residual=0.0, normalized residual=0.0
+- Sensor FIT101.Pv: actual=0.0, predicted=0.0, absolute residual=0.0, normalized residual=0.0
+- Event window: 2022-11-11 11:05:00 to 2022-11-11 11:08:00; detection delay 1.0 s
+- System anomaly score (max threshold-normalised residual) = 1.0605643136436227
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting. Thresholds are global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P3_STATE=99, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual is only a deviation from the detector's forecast and does not by itself indicate a sensor fault, equipment failure or cyberattack.
+- Only the supplied sensors and values were considered; no additional signals or logs were available in the evidence.
+- Process-state values were not used in scoring and therefore do not change the detector-derived residuals or anomaly score.
+- The detector uses global thresholds with a resolution floor; normalized residual > 1 indicates the residual exceeded that threshold but is not a probability or percentage.
+
+RECOMMENDED CHECKS:
+- Verify the AIT302.Pv measurement at the time of the event in historian or raw data to confirm the recorded value and timestamp.
+- Check recent calibration, drift history and sensor diagnostics for AIT302 around the event time to rule out sensor reporting issues.
+- Compare AIT302.Pv behavior with any nearby or correlated instrumentation (if available) to see if a physical process change is corroborated.
+- Review operator logs, control actions and procedure steps during 11:05–11:08 to identify manual interventions or process changes.
+- If available, inspect communication paths and gateway logs for AIT302 to detect transient transmission or processing anomalies.",5.0,2.0,1.0,4.0,3.0,0.0,1.0
+EVAL_002,"SUMMARY:
+A single-sensor forecasting residual was detected on AIT402.Pv between 2022-11-11 10:24:00 and 10:26:00. The one-step persistence predictor expected ~406.5624 but observed 406.8444, producing a normalized residual of 1.3751 which produced the system anomaly score above the global persistence threshold.
+
+EVIDENCE:
+- Sensor AIT402.Pv: actual=406.8444, predicted=406.5624, absolute residual=0.2820, normalized residual=1.3750865524335243 (top contributor).
+- Sensors FIT201.Pv and FIT101.Pv: actual and predicted both 0.0, zero residuals and zero normalized residuals.
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state columns (P4_STATE=3, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but is not proof of a sensor fault, equipment failure, or cyberattack.
+- Only the supplied sensors are present in the evidence; no other measurements were considered.
+- Process-state values were not used to compute predictions, residuals, thresholds or the system anomaly score.
+- Normalized residual is a detector ratio relative to the global threshold floor and is not a probability or likelihood.
+
+RECOMMENDED CHECKS:
+- Verify the current reading of AIT402.Pv on the control system and compare against independent field instrumentation or a recent calibration record.
+- Confirm timestamp alignment and data acquisition integrity for AIT402.Pv around 2022-11-11 10:24:15 (e.g., check time synchronization, data dropouts, or buffering issues).
+- Inspect recent configuration or maintenance actions affecting AIT402 (e.g., sensor recalibration, replacement, or process changes) that could explain the deviation.
+- Review related process variables and operator logs for the same interval to see if process behavior changed in a way that could justify the observed residual.
+- If the anomaly recurs, consider collecting higher-frequency traces or redundant measurements for AIT402 to help distinguish sensor noise from true process change.",5.0,3.0,4.0,1.0,3.0,0.0,1.0
+EVAL_003,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:14:19. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.091.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 512.253, compared with a forecast of 511.946. The absolute residual was 0.307652, equivalent to a normalised residual of 1.091. The recorded operating state was P5_STATE=7.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",1.0,2.0,3.0,3.0,4.0,1.0,0.0
+EVAL_004,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 11:10:01. The strongest contribution came from AIT302.Pv, with a normalised residual of 1.091.
+
+EVIDENCE:
+- AIT302.Pv had an actual value of 436.699, compared with a forecast of 435.777. The absolute residual was 0.921936, equivalent to a normalised residual of 1.091. The recorded operating state was P3_STATE=7.
+- AIT402.Pv had an actual value of 416.098, compared with a forecast of 416.047. The absolute residual was 0.05127, equivalent to a normalised residual of 0.250. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 2.64928, compared with a forecast of 2.65082. The absolute residual was 0.0015378, equivalent to a normalised residual of 0.005. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",1.0,2.0,3.0,4.0,5.0,1.0,0.0
+EVAL_005,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:03:00. The strongest contribution came from FIT101.Pv, with a normalised residual of 911.901.
+
+EVIDENCE:
+- FIT101.Pv had an actual value of 4.58636, compared with a forecast of 4.29459. The absolute residual was 0.291772, equivalent to a normalised residual of 911.901. The recorded operating state was P1_STATE=2.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- AIT302.Pv had an actual value of 395.262, compared with a forecast of 395.262. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P3_STATE=99.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+strong
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",1.0,2.0,3.0,3.0,2.0,0.0,1.0
+EVAL_006,"SUMMARY:
+A detector using one-step persistence flagged an anomaly beginning 2022-11-10 11:34:00 (detected after 21 s). The system anomaly score is 1.1818, driven primarily by AIT502.Pv whose observed value deviated from its persistence prediction by 0.333245 units (normalized residual 1.1818).
+
+EVIDENCE:
+- AIT502.Pv: actual=502.4609, predicted=502.127655, absolute_residual=0.333245, normalized_residual=1.1817925258241118
+- AIT302.Pv: actual=419.2586, predicted=420.0269, absolute_residual=0.7683, normalized_residual=0.9090855522273917
+- FIT201.Pv: actual=0.000128151732, predicted=0.000128151732, absolute_residual=0.0, normalized_residual=0.0
+
+OPERATING CONTEXT:
+Detector forecasting method: one-step persistence. Threshold method: global q=0.99 residual thresholds with a sensor-resolution floor. Process-state fields (P5_STATE=12 for AIT502, P3_STATE=99 for AIT302, P2_STATE=2 for FIT201) are provided as contextual metadata only and were not used in scoring. The system anomaly score is the maximum threshold-normalised residual across monitored sensors; it is not a probability or confidence measure.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual only shows deviation from the detector's expected value; it does not prove sensor fault, equipment malfunction or cyber activity.
+- Process-state values were not used by the detector and should not be interpreted as having influenced the score.
+- Only three sensors are included in the supplied evidence; other sensors or diagnostics not listed may be relevant but are not available here.
+- Global q=0.99 thresholds with a resolution floor can make normalized residuals >1 for modest absolute deviations on sensors with small thresholds.
+
+RECOMMENDED CHECKS:
+- Verify the raw AIT502.Pv measurement time series around 2022-11-10 11:34:00 for continuity, spikes, noise or timestamp issues.
+- Compare AIT502.Pv to upstream/downstream related measurements (including AIT302.Pv) to see if the deviation is consistent with process behavior.
+- Check AIT502 sensor diagnostics and communication logs for recent errors, maintenance, or calibration records.
+- Examine control actions or setpoint changes near the event time that could explain the short deviation.
+- If available, review historical residuals for AIT502.Pv under similar process states to determine whether this magnitude of deviation has occurred previously.",1.0,2.0,1.0,2.0,3.0,1.0,0.0
+EVAL_007,"SUMMARY:
+A short, persistent positive residual was detected for sensor AIT302.Pv beginning at 2022-11-11 10:41:00. The detector flagged the event after 21 s because AIT302.Pv's one-step persistence residual exceeded the global, resolution-floored threshold and produced the maximum threshold-normalised score (system_anomaly_score = 1.060576146073146).
+
+EVIDENCE:
+- Detector: one-step persistence forecast; global q=0.99 residual thresholds with a sensor-resolution floor.
+- AIT302.Pv — actual 420.3598 vs predicted 419.46347; absolute residual 0.89633; normalized_residual 1.060576146073146 (top contributor).
+- AIT402.Pv — actual 410.151245 vs predicted 410.0487; absolute residual 0.102545; normalized_residual 0.5000292571607547 (below the top sensor).
+- FIT201.Pv — actual equals predicted (residual 0.0; normalized_residual 0.0).
+- Event window: 2022-11-11 10:41:00 to 2022-11-11 10:44:00; reference timestamp 2022-11-11 10:41:21; detection delay 21.0 s.
+
+OPERATING CONTEXT:
+Process-state fields are provided as contextual metadata only (P3_STATE=7 for AIT302.Pv, P4_STATE=3 for AIT402.Pv, P2_STATE=2 for FIT201.Pv) and were not used to compute predictions, residuals, thresholds or the system anomaly score.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual is evidence of deviation from the detector's forecast; it is not proof of a sensor fault, equipment issue or cyber event.
+- The detector uses one-step persistence forecasting; deviations reflect change relative to the previous value, not necessarily a long-term trend.
+- Process-state metadata were not used for scoring and therefore cannot explain detector calculations.
+- Only the named sensors in the supplied evidence are available; other sensors or system logs were not provided.
+
+RECOMMENDED CHECKS:
+- Verify the current and historical readings of AIT302.Pv around the event window (before, during and after 10:41–10:44) to confirm whether the residual was transient or sustained.
+- Inspect AIT302.Pv sensor diagnostics (communications status, recent calibrations, error flags) to rule out reporting or instrumentation issues.
+- Compare AIT302.Pv readings with nearby or redundant temperature/pressure sensors (if available) to see if the measured change is corroborated by other instrumentation.
+- Review control and process logs for operations occurring at P3_STATE=7 around the event time that could explain a legitimate process-caused change in AIT302.Pv.
+- If uncertainty remains after the above checks, consider collecting higher-frequency data and enabling additional monitoring on AIT302.Pv to detect recurrence.",1.0,2.0,3.0,5.0,4.0,1.0,0.0
+EVAL_008,"SUMMARY:
+A short-lived forecasting deviation was detected for AIT402.Pv between 2022-11-11 11:16:00 and 2022-11-11 11:19:00. The detector raised a system anomaly score of 1.125 based on a normalized residual for AIT402.Pv slightly above the global persistence threshold.
+
+EVIDENCE:
+- AIT402.Pv: actual=417.61087, predicted=417.380157, absolute residual=0.230713, normalized residual=1.1250012190481857
+- AIT502.Pv: actual=524.3527, predicted=524.4296, absolute residual=0.0769, normalized residual=0.27271180433587316
+- FIT201.Pv: actual=2.65081859, predicted=2.65222836, absolute residual=0.00140977, normalized residual=0.004266500445259488
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting with global q=0.99 residual thresholds floored to sensor resolution. Process-state fields (P4_STATE=3 for AIT402.Pv, P5_STATE=7 for AIT502.Pv, P2_STATE=2 for FIT201.Pv) are provided as contextual metadata only and were not used in scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the model prediction but does not prove a sensor fault, equipment issue, or cyber event.
+- Only sensors listed in the supplied evidence were available; other sensors or site data were not considered.
+- Process-state values were not used to compute the detector score and should not be interpreted as influencing the detection result.
+- The detector uses global, resolution-floored thresholds; small absolute residuals can produce normalized residuals near or above 1 if the sensor threshold is small.
+
+RECOMMENDED CHECKS:
+- Verify the current reading and short-term trend of AIT402.Pv in the historian around 2022-11-11 11:16 to confirm the persistence of the deviation.
+- Compare AIT402.Pv to nearby or redundant instrumentation (if available) measuring the same variable to check for agreement or divergence.
+- Confirm sensor metadata (calibration date, resolution, and recent maintenance) for AIT402.Pv to rule out resolution or configuration issues.
+- Review recent operator actions or process changes around the event time that could explain a short deviation in AIT402.Pv.
+- If available, inspect raw sensor signals and acquisition/communication logs for AIT402.Pv for anomalies (e.g., timestamp gaps, retransmissions) during the event window.",1.0,1.0,2.0,1.0,2.0,1.0,2.0
+EVAL_009,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 11:22:52. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.875.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 419.098, compared with a forecast of 418.713. The absolute residual was 0.384491, equivalent to a normalised residual of 1.875. The recorded operating state was P4_STATE=3.
+- AIT502.Pv had an actual value of 525.66, compared with a forecast of 525.532. The absolute residual was 0.1282, equivalent to a normalised residual of 0.455. The recorded operating state was P5_STATE=7.
+- FIT201.Pv had an actual value of 2, compared with a forecast of 2. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,4.0,3.0,1.0,1.0,1.0,3.0
+EVAL_010,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:09:03. The strongest contribution came from FIT101.Pv, with a normalised residual of 8.009.
+
+EVIDENCE:
+- FIT101.Pv had an actual value of 4.97102, compared with a forecast of 4.96845. The absolute residual was 0.00256255, equivalent to a normalised residual of 8.009. The recorded operating state was P1_STATE=2.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- AIT302.Pv had an actual value of 386.888, compared with a forecast of 386.888. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P3_STATE=99.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+strong
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,4.0,5.0,4.0,2.0,1.0,2.0
+EVAL_011,"SUMMARY:
+A short-duration anomaly (11:10:00–11:13:00) was detected primarily due to AIT302.Pv exhibiting a residual above its global, resolution-floored persistence threshold. The system anomaly score (1.0909) equals the threshold‑normalised residual for AIT302.Pv and triggered the event.
+
+EVIDENCE:
+- AIT302.Pv — actual 436.698883, predicted 435.776947, absolute residual 0.921936, normalised residual 1.0908742648424044 (largest contributor)
+- AIT402.Pv — actual 416.09845, predicted 416.04718, absolute residual 0.05127, normalised residual 0.25000243809664874
+- FIT201.Pv — actual 2.64928079, predicted 2.65081859, absolute residual 0.0015378, normalised residual 0.004653967941380379
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting. Thresholds are global q=0.99 residual thresholds with a sensor-resolution floor. Process-state fields (P3_STATE=""7"", P4_STATE=""3"", P2_STATE=""2"") are provided only as contextual metadata and were not used to compute residuals, thresholds or the system anomaly score. The system anomaly score reported (1.0908742648424044) is the maximum threshold-normalised residual across monitored sensors, not a probability.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual only shows deviation from the model’s one-step persistence prediction; it is not proof of a sensor fault, equipment failure or malicious action.
+- Process-state metadata were not used in detector scoring and therefore do not establish cause or influence the anomaly score.
+- The detector uses a global threshold with a resolution floor; sensors with small resolution thresholds can yield large normalised residuals even for small absolute deviations.
+
+RECOMMENDED CHECKS:
+- Verify the current and recent raw readings from AIT302.Pv around 11:10–11:13 to confirm the recorded values and look for repeatability.
+- Check AIT302.Pv sensor health indicators (e.g., diagnostics, calibration date, wiring/connectors) for signs of measurement issues.
+- Compare AIT302.Pv behaviour to nearby or functionally related sensors (e.g., AIT402.Pv and other level/pressure sensors) to see if the deviation is isolated or part of a broader process change.
+- Review process logs and operator actions around 11:10 to identify any intentional setpoint changes or process transitions corresponding to the contextual P3_STATE=""7"" metadata.
+- If uncertainty remains after the above checks, consider capturing high-frequency data for a period to determine whether deviations persist beyond the one-step window and to rule out transient measurement noise.",3.0,3.0,2.0,2.0,3.0,1.0,1.0
+EVAL_012,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:24:15. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.375.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 406.844, compared with a forecast of 406.562. The absolute residual was 0.282, equivalent to a normalised residual of 1.375. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",2.0,3.0,4.0,3.0,2.0,1.0,1.0
+EVAL_013,"SUMMARY:
+A short, persistent deviation was detected at 2022-11-11 10:34:08. The detector flagged AIT502.Pv as the top contributor with a threshold-normalised residual of 1.1818 (system anomaly score = 1.1818), indicating the observed value deviated from the one-step persistence forecast by more than the global residual threshold (with resolution floor).
+
+EVIDENCE:
+- AIT502.Pv — actual 516.3548 vs predicted 516.688049; absolute residual 0.333249; normalized residual 1.1818067110936836 (top contributor).
+- AIT302.Pv — actual 429.7074 vs predicted 429.118378; absolute residual 0.589022; normalized residual 0.6969561240974558 (secondary contributor).
+- FIT201.Pv — actual 0.0 vs predicted 0.0; absolute residual 0.0; normalized residual 0.0 (no deviation).
+
+OPERATING CONTEXT:
+Forecast method: one-step persistence. Threshold method: global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P5_STATE=7 for AIT502.Pv, P3_STATE=7 for AIT302.Pv, P2_STATE=2 for FIT201.Pv) are provided as contextual metadata only and were not used in detector scoring. The system anomaly score equals the maximum threshold-normalised residual and is not a probability or confidence measure.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual only shows deviation from the detector's expected value; it does not prove a sensor fault, equipment failure or cyber event.
+- Detector uses one-step persistence forecasts—short-term deviations may reflect normal short-term variability not captured by persistence.
+- Process-state values were not used to compute the residuals or anomaly score and therefore do not imply causal relevance.
+- Only the supplied sensors are available for assessment; there may be other unmonitored variables affecting the reading.
+- Global q=0.99 thresholds are floored by sensor resolution; normalized residuals are detector ratios and are not probabilities.
+
+RECOMMENDED CHECKS:
+- Verify the AIT502.Pv measurement at or near 2022-11-11 10:34:08 using the primary field indicator or a redundant sensor (if available) to confirm the reported value 516.3548.
+- Check recent AIT502 and AIT302 instrument diagnostics and maintenance logs for any calibration events, wiring issues or reported faults around the event time.
+- Review process logs and operator actions for P5_STATE=7 and P3_STATE=7 around the event to identify any planned transitions or interventions that could cause short deviations (note: process states are contextual only).
+- Inspect historian or higher-resolution data for the same sensors before and after the event window (10:34:00–10:37:00) to see if the deviation persisted or was transient.
+- If available, compare correlated process variables (flows, temperatures, control outputs) to check for consistent physical changes versus an isolated sensor deviation.",2.0,3.0,3.0,4.0,5.0,1.0,1.0
+EVAL_014,"SUMMARY:
+A short-lived deviation was detected on AIT502.Pv between 2022-11-11 10:14:00 and 10:17:00. The detector flagged AIT502.Pv because its one-step persistence forecast deviated from the measured value by an absolute residual of 0.30765, producing a threshold-normalised residual (system anomaly score) of 1.09103 which exceeded the global persistence threshold.
+
+EVIDENCE:
+- Sensor AIT502.Pv: actual=512.2533, predicted=511.945648, absolute_residual=0.307652, normalized_residual=1.0910316258451072
+- Sensors FIT201.Pv and FIT101.Pv: actual and predicted both 0.0, residuals 0.0 (included as monitored sensors with no deviation)
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting. Global q=0.99 residual thresholds were applied with a sensor-resolution floor. Process-state fields (P5_STATE=7, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual only indicates deviation from the detector's expected value; it does not prove a sensor fault, equipment issue or cyber incident.
+- Only the supplied sensors are available for analysis; no additional signals or system logs were provided.
+- The detector uses global, resolution-floored thresholds which can make small absolute residuals appear threshold-exceeding for sensors with small resolution floors.
+
+RECOMMENDED CHECKS:
+- Verify the raw timestamps and values for AIT502.Pv around 2022-11-11 10:14:00–10:17:00 in the historian to confirm the recorded 512.2533 value and look for repeatability or nearby fluctuations.
+- Check recent calibration and maintenance records for the AIT502 instrument to see if any work or adjustments occurred before the event.
+- Compare AIT502.Pv to nearby or related instrumentation (if available) to assess whether the change is consistent with process behavior or isolated to this sensor.
+- Inspect communication/telemetry logs for any transient transmission errors or timestamp anomalies coincident with the detection delay (19 s) and event period.
+- If the deviation recurs, consider increasing sampling or enabling additional monitoring to collect more data for diagnosis.",2.0,3.0,4.0,3.0,2.0,1.0,1.0
+EVAL_015,"SUMMARY:
+A single-sensor anomaly was detected for AIT402.Pv between 2022-11-11 10:29:00 and 2022-11-11 10:32:00. The detector flagged a residual just above the global persistence threshold (system anomaly score = 1.0001073) driven by a small positive deviation of AIT402.Pv from its one-step persistence prediction.
+
+EVIDENCE:
+- AIT402.Pv actual = 407.9467, predicted (one-step persistence) = 407.7416, absolute residual = 0.2051, normalized residual = 1.00010727625587
+- FIT201.Pv actual = 0.0, predicted = 0.0, absolute residual = 0.0, normalized residual = 0.0
+- FIT101.Pv actual = 3.0, predicted = 3.0, absolute residual = 0.0, normalized residual = 0.0
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state columns (P4_STATE=3, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but does not prove a sensor fault, equipment issue, or cyber incident.
+- The residual magnitude (0.2051) is close to the threshold floor; normalised residual just exceeds 1.0, so the signal is marginal.
+- Only the supplied sensors and values were considered; no additional measurements or diagnostics are available in the evidence.
+- Process-state values were not used to calculate the prediction, residual, threshold, or system anomaly score.
+
+RECOMMENDED CHECKS:
+- Verify the AIT402 sensor reading at and around 2022-11-11 10:29:30 against logger/PLC raw data to confirm the reported actual_value (407.9467).
+- Check recent calibration and maintenance records for AIT402 to see if calibration, drift, or recent service could explain a small offset.
+- Examine upstream/downstream process variables and trends (outside the supplied evidence) for concurrent deviations that could make the small change in AIT402.Pv expected.
+- If available, inspect AIT402 hardware diagnostics (signal noise, communication errors) for anomalies coincident with the timestamp.
+- If the condition recurs or the residual grows, consider increasing monitoring frequency or enabling additional diagnostics for AIT402.",4.0,2.0,1.0,2.0,3.0,1.0,1.0
+EVAL_016,"SUMMARY:
+A short, persistent deviation was detected beginning 2022-11-11 11:28:00 and ending 11:31:00. The detector flagged FIT101.Pv as the primary contributor: its one-step persistence forecast differed from the measured value by an absolute residual of 0.004804 and a normalized residual of 15.0144, producing the system anomaly score of 15.0144.
+
+EVIDENCE:
+- FIT101.Pv — actual 5.059411 vs predicted 5.054607; absolute residual 0.004804; normalized residual 15.014376797114986 (primary contributor).
+- AIT302.Pv — actual 446.76355 vs predicted 447.275757; absolute residual 0.512207; normalized residual 0.6060653175189005 (secondary contributor).
+- FIT201.Pv — actual 2.0 vs predicted 2.0; absolute residual 0.0; normalized residual 0.0.
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P1_STATE=2 for FIT101.Pv, P3_STATE=99 for AIT302.Pv, P2_STATE=2 for FIT201.Pv) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual indicates deviation from the detector's forecast only; it does not prove a sensor fault, equipment failure or cyberattack.
+- Process-state values were not used in scoring and do not imply causation.
+- The normalized residual is a threshold-normalised detector ratio, not a probability or percentage.
+- Only the supplied named sensors are considered; other sensors or system logs were not provided.
+
+RECOMMENDED CHECKS:
+- Verify the FIT101.Pv measurement at 2022-11-11 11:28:00–11:31:00 against local recorder or historian to confirm the reading (compare raw sensor output and any backups).
+- Check FIT101 sensor wiring, transmitter status and calibration records for recent changes or alarms around the event time as possible causes of the deviation.
+- Review recent operator actions or setpoint changes in the equipment associated with FIT101 around the event time (note: process-state metadata is contextual only).
+- Compare AIT302 and other related measurements for correlated deviations that might explain a process-driven change affecting FIT101.
+- Inspect detector logs to confirm the persistence forecast and that the global q=0.99 threshold with resolution floor was applied as configured.",1.0,2.0,3.0,3.0,4.0,0.0,4.0
+EVAL_017,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:34:08. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.182.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 516.355, compared with a forecast of 516.688. The absolute residual was 0.333249, equivalent to a normalised residual of 1.182. The recorded operating state was P5_STATE=7.
+- AIT302.Pv had an actual value of 429.707, compared with a forecast of 429.118. The absolute residual was 0.589022, equivalent to a normalised residual of 0.697. The recorded operating state was P3_STATE=7.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",2.0,2.0,3.0,3.0,1.0,1.0,23.0
+EVAL_018,"SUMMARY:
+The detector raised an anomaly at 2022-11-10 11:25:38. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.091.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 499.897, compared with a forecast of 500.205. The absolute residual was 0.307617, equivalent to a normalised residual of 1.091. The recorded operating state was P5_STATE=12.
+- FIT201.Pv had an actual value of 2.6489, compared with a forecast of 2.64928. The absolute residual was 0.00038457, equivalent to a normalised residual of 0.001. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,5.0,4.0,2.0,1.0,1.0,3.0
+EVAL_019,"SUMMARY:
+A single-sensor anomaly was detected driven primarily by AIT502.Pv showing a small positive residual relative to a one-step persistence forecast. The system anomaly score (1.1817) equals the threshold-normalised residual for AIT502.Pv and exceeded the global persistence threshold, triggering the event.
+
+EVIDENCE:
+- Detector: one-step persistence forecast with global q=0.99 residual thresholds and a sensor-resolution floor.
+- AIT502.Pv — actual 495.949768, predicted 496.283000, absolute residual 0.333232, normalised residual 1.181746423699061 (top contributor).
+- AIT402.Pv — actual 389.156616, predicted 389.130981, absolute residual 0.025635, normalised residual 0.12500121904818576 (present but below threshold).
+- FIT201.Pv — actual equals predicted, absolute residual 0.0, normalised residual 0.0.
+
+OPERATING CONTEXT:
+Contextual metadata (not used in detector scoring): P5_STATE = 12 for AIT502.Pv, P4_STATE = 4 for AIT402.Pv, P2_STATE = 2 for FIT201.Pv. Detector delay: 18.0 seconds from event start to reference timestamp.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual indicates deviation from the detector's forecast but does not prove a sensor fault, equipment issue or cyber incident.
+- Process-state values were not used to compute predictions, residuals, thresholds or the system anomaly score and therefore cannot be cited as causal evidence.
+- Only the supplied sensors and measurements were available; no additional plant data or diagnostics were provided.
+- The detector uses a global threshold with a resolution floor; normalised residuals are detector ratios and are not probabilities.
+
+RECOMMENDED CHECKS:
+- Verify the raw AIT502.Pv signal around 2022-11-10 11:03:00–11:10:00 for timestamp alignment, outliers, noise or step changes in the recorded values.
+- Compare AIT502.Pv to nearby or redundant temperature/level sensors (if available) to see whether the deviation is present elsewhere.
+- Check recent communications/log integrity and sampling for AIT502.Pv to rule out transmission or timestamp issues that could affect the one-step persistence forecast.
+- Review AIT402.Pv and FIT201.Pv traces for the same interval to confirm they remained close to their forecasts and to look for correlated behavior.
+- If hardware verification is possible, inspect AIT502 sensor wiring and transmitter status and review any sensor maintenance logs covering the event window.",4.0,5.0,4.0,3.0,4.0,0.0,2.0
+EVAL_020,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 09:51:31. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.125.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 397.667, compared with a forecast of 397.437. The absolute residual was 0.230713, equivalent to a normalised residual of 1.125. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 2.65953, compared with a forecast of 2.65735. The absolute residual was 0.00217844, equivalent to a normalised residual of 0.007. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",2.0,3.0,5.0,2.0,1.0,1.0,0.0
+EVAL_021,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 11:05:01. The strongest contribution came from AIT302.Pv, with a normalised residual of 1.061.
+
+EVIDENCE:
+- AIT302.Pv had an actual value of 431.193, compared with a forecast of 432.089. The absolute residual was 0.89632, equivalent to a normalised residual of 1.061. The recorded operating state was P3_STATE=99.
+- FIT201.Pv had an actual value of 2.66773, compared with a forecast of 2.66773. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,1.0,2.0,3.0,1.0,1.0,0.0
+EVAL_022,"SUMMARY:
+A single-sensor anomaly was detected on FIT101.Pv at 2022-11-11 10:03:00. The sensor's measured value (4.5864) exceeded the one-step persistence forecast (4.2946), producing a residual of 0.2918 that, after normalisation against the detector's global threshold and resolution floor, produced a very large system anomaly score (911.9011).
+
+EVIDENCE:
+- FIT101.Pv — actual 4.58636236, predicted 4.29459047, absolute residual 0.29177189, normalised residual 911.9011438939121
+- FIT201.Pv — actual 0.0, predicted 0.0, absolute residual 0.0, normalised residual 0.0
+- AIT302.Pv — actual 395.262177, predicted 395.262177, absolute residual 0.0, normalised residual 0.0
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P1_STATE=2 for FIT101.Pv, etc.) are provided as contextual metadata only and were not used in detector scoring. The reported system anomaly score is the maximum threshold-normalised residual across monitored sensors and is not a probability or percentage.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but does not prove a sensor fault, equipment failure, or cyber incident.
+- Process-state metadata were not used to compute the prediction, residual, threshold, or system anomaly score and therefore do not imply causation.
+- Only sensors named in the supplied evidence were available; other sensors or context not supplied could be relevant.
+- The normalised residual is a detector ratio relative to global thresholds and resolution floors; very large values can occur when the threshold or resolution floor is small.
+
+RECOMMENDED CHECKS:
+- Verify the current and recent historical raw readings from FIT101.Pv (including timestamps around 2022-11-11 10:03:00) to confirm the measurement and check for intermittent spikes.
+- Inspect FIT101 device communications and logs for diagnostics (e.g., communication errors, engineering units, device status) to rule out sensor reporting or transmission issues.
+- Compare FIT101.Pv against nearby or redundant flow measurements (if available) to see whether the deviation is isolated to FIT101 or reflected elsewhere in the system.
+- Review recent control actions or setpoint changes affecting the loop associated with FIT101 around the event time to determine if process changes could explain the deviation.
+- Check sensor configuration for resolution, scaling, or calibration history that might make the sensor more sensitive relative to the detector's resolution floor.",1.0,2.0,2.0,3.0,3.0,0.0,2.0
+EVAL_023,"SUMMARY:
+A short-duration residual anomaly was detected for sensor AIT502.Pv between 2022-11-11 10:20:00 and 10:22:00. The detector flagged AIT502.Pv because its one-step persistence forecast deviated from the measured value by an absolute residual of 0.282, producing a threshold-normalised residual (system anomaly score) of 1.00006149314309 which just exceeds the global persistence threshold.
+
+EVIDENCE:
+- Sensor AIT502.Pv — actual 513.7657, predicted 513.4837, absolute residual 0.2820000000000391, normalized_residual 1.00006149314309
+- Sensor FIT201.Pv — actual 0.0, predicted 0.0, absolute residual 0.0, normalized_residual 0.0
+- Sensor FIT101.Pv — actual 0.0, predicted 0.0, absolute residual 0.0, normalized_residual 0.0
+- Event window: 2022-11-11 10:20:00 to 2022-11-11 10:22:00, reference_timestamp 2022-11-11 10:20:23, detection_delay_seconds 23.0
+- Detector settings: one-step persistence forecast; global q=0.99 residual thresholds with a sensor-resolution floor; anomaly score is maximum threshold-normalised residual
+
+OPERATING CONTEXT:
+Contextual metadata: process-state columns present in evidence (P5_STATE = 7 for AIT502.Pv; P2_STATE = 2 for FIT201.Pv; P1_STATE = 2 for FIT101.Pv). These process-state values were not used to compute the detector forecasts, residuals, thresholds or anomaly score.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but does not prove a sensor fault, equipment failure or cyberattack.
+- The detector uses one-step persistence forecasts and global q=0.99 thresholds with a resolution floor — this can produce alerts for small absolute deviations on sensors with tight thresholds.
+- Only the named sensors in the supplied evidence (AIT502.Pv, FIT201.Pv, FIT101.Pv) are available for analysis; no other measurements or context were provided.
+- Process-state values are contextual only and were not used in scoring; therefore they do not explain the detector decision.
+
+RECOMMENDED CHECKS:
+- Verify the AIT502.Pv reading at 2022-11-11 10:20:23 against raw sensor logs or historian to confirm the recorded value 513.7657.
+- Check recent AIT502.Pv timestamps immediately before and after the event to see if the deviation was transient or part of a trend.
+- Confirm sensor telemetry integrity for AIT502.Pv (communications, timestamp alignment, and any intervening digitization/resolution effects).
+- Review process logs or operator actions around 10:20 to see if a process change could account for the small deviation.
+- If available, compare AIT502.Pv to nearby or redundant sensors (not supplied here) to help determine whether the reading is isolated.",3.0,4.0,4.0,2.0,4.0,1.0,3.0
+EVAL_024,"SUMMARY:
+The detector raised an anomaly at 2022-11-10 11:45:41. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.000.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 399.051, compared with a forecast of 399.257. The absolute residual was 0.2051, equivalent to a normalised residual of 1.000. The recorded operating state was P4_STATE=4.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,5.0,4.0,2.0,2.0,1.0,2.0
+EVAL_025,"SUMMARY:
+A small but persistent deviation was detected for sensor AIT402.Pv between 2022-11-11 09:51:00 and 2022-11-11 09:55:00. The detector flagged the event because AIT402.Pv's forecasting residual exceeded the global resolution-floored threshold, producing a system anomaly score of 1.1250.
+
+EVIDENCE:
+- AIT402.Pv — actual 397.667267 vs predicted 397.436554; absolute residual 0.230713; normalized residual 1.1250012190481857 (top contributor).
+- FIT201.Pv — actual 2.65953279 vs predicted 2.65735435; absolute residual 0.00217844; normalized residual 0.006592788348434279.
+- FIT101.Pv — actual 0.0 vs predicted 0.0; absolute residual 0.0; normalized residual 0.0.
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state columns (P4_STATE=3 for AIT402.Pv, P2_STATE=2 for FIT201.Pv, P1_STATE=2 for FIT101.Pv) are provided as contextual metadata only and were not used in detector scoring. The system anomaly score equals the maximum threshold-normalised residual and is not a probability.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual only indicates deviation from the detector's expected value; it does not prove a sensor fault, equipment failure or cyber incident.
+- Only one sensor (AIT402.Pv) exceeded the global threshold; multisensor corroboration is limited.
+- Detector uses one-step persistence forecasts and global thresholds; short-term process dynamics or correlated but unmonitored signals are not represented.
+- Process-state values were not used in scoring and therefore do not establish causation.
+
+RECOMMENDED CHECKS:
+- Verify the live and recent historical readings for AIT402.Pv to confirm the deviation persists and to inspect measurement trends around 2022-11-11 09:51–09:55.
+- Check AIT402.Pv sensor health indicators (e.g., diagnostics, calibration date, wiring/connectors) for faults or recent maintenance actions as possible sources of measurement deviation.
+- Compare AIT402.Pv against redundant or nearby pressure/level sensors (if available) to determine whether the deviation is isolated to AIT402.Pv or reflected in other measurements.
+- Review recent operator actions or process logs for events around the timestamp that could explain a legitimate change in the measured variable.
+- If safe and appropriate, perform a targeted calibration or verification of AIT402.Pv following plant procedures before taking operational decisions based on the reading.",2.0,1.0,2.0,2.0,3.0,0.0,6.0
+EVAL_026,"SUMMARY:
+A short-lived residual anomaly was detected at 2022-11-11 11:22:52 driven primarily by sensor AIT402.Pv. The detector flagged a single-sensor deviation where AIT402.Pv exceeded its one-step persistence prediction by a residual larger than the global, resolution-floored threshold.
+
+EVIDENCE:
+- Detector timestamp (reference): 2022-11-11 11:22:52; detection delay 52.0 s; event window 2022-11-11 11:22:00 to 2022-11-11 11:25:00.
+- System anomaly score (maximum threshold-normalised residual): 1.8748524951479015.
+- Top contributor AIT402.Pv — actual 419.097656, predicted 418.713165, absolute residual 0.384491, normalized_residual 1.8748524951479015.
+- Other monitored sensors in the top contributors: AIT502.Pv (normalized_residual 0.4546379) and FIT201.Pv (normalized_residual 0.0).
+- Forecast method: one-step persistence. Threshold method: global q=0.99 residual thresholds with a sensor-resolution floor.
+
+OPERATING CONTEXT:
+Contextual metadata: process-state columns and values associated with contributors are provided (AIT402.Pv -> P4_STATE=3; AIT502.Pv -> P5_STATE=7; FIT201.Pv -> P2_STATE=2). Per detector design, process-state values were not used for scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value only; it is not proof of a sensor fault, equipment failure or cyber incident.
+- Detector uses one-step persistence forecasts and global q=0.99 thresholds with a resolution floor; any model or thresholding limitations inherent to that method apply.
+- Only the supplied sensors and values may be described; no additional measurements or causal mechanisms can be inferred from the evidence.
+- Process-state values are contextual metadata and were not used in computing the residuals, thresholds or system anomaly score.
+
+RECOMMENDED CHECKS:
+- Verify the current reading and short-term trend of AIT402.Pv against recent raw sensor logs around 2022-11-11 11:22:52 to confirm whether the deviation persisted beyond the single one-step forecast.
+- Check sensor telemetry quality for AIT402.Pv (timestamp alignment, communication integrity, and any diagnostic flags) at and before the reference timestamp.
+- Compare AIT402.Pv readings with any colocated or related instrumentation (if available) to see if the measured value is consistent across sensors.
+- Inspect historical residuals or past alerts for AIT402.Pv to determine if similar threshold-normalised deviations have occurred previously.
+- If no instrumentation or communication anomalies are found, review operator logs or process records for the contextual period (P4_STATE=3) to identify any manual actions or process changes coincident with the event.",1.0,2.0,2.0,4.0,4.0,0.0,
+EVAL_027,"SUMMARY:
+At 2022-11-11 10:47:35 a persistence-based detector flagged a deviation in AIT402.Pv: the sensor's measured value (411.5611) exceeded its one-step persistence prediction (411.3048), producing a normalized residual of 1.25 which caused the system anomaly score to cross the global threshold.
+
+EVIDENCE:
+- Sensor AIT402.Pv: actual=411.561127, predicted=411.304779, absolute residual=0.256348, normalized residual=1.2500024380966488
+- System anomaly score (max threshold-normalised residual) = 1.2500024380966488
+- Detection reference timestamp = 2022-11-11 10:47:35, detection delay = 35.0 seconds
+- Only one sensor triggered (number_of_sensors_triggered = 1); FIT201.Pv and FIT101.Pv had zero residuals
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state fields (P4_STATE=3, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but does not by itself identify a cause (e.g., sensor fault, process change or cyber event).
+- Only the supplied sensors and numeric values were used; no additional measurements or causes are present in the evidence.
+- Global, resolution-floored thresholds were used; the normalized residual is a detector ratio, not a probability or likelihood.
+- Process-state values were not used to compute the detector score and thus do not imply influence on the detection.
+
+RECOMMENDED CHECKS:
+- Verify AIT402.Pv reading on the primary display and on any redundant or supervisory measurement to confirm the reported value at ~2022-11-11 10:47:35.
+- Review recent AIT402.Pv trend around the event window (several minutes before and after) to see if the deviation was transient or part of a sustained drift.
+- Check sensor health and diagnostics for AIT402 (e.g., calibration status, communication errors, maintenance logs) as possible verification steps.
+- Compare related process measurements and control outputs that could influence AIT402.Pv to identify correlated changes (using plant historian data if available).
+- If sensor redundancy exists, compare readings from redundant channels or perform a manual measurement to corroborate the instrument value.",3.0,3.0,2.0,3.0,4.0,1.0,3.0
+EVAL_028,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 09:59:12. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.250.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 399.487, compared with a forecast of 399.231. The absolute residual was 0.256343, equivalent to a normalised residual of 1.250. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,4.0,4.0,3.0,4.0,0.0,2.0
+EVAL_029,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 11:28:00. The strongest contribution came from FIT101.Pv, with a normalised residual of 15.014.
+
+EVIDENCE:
+- FIT101.Pv had an actual value of 5.05941, compared with a forecast of 5.05461. The absolute residual was 0.004804, equivalent to a normalised residual of 15.014. The recorded operating state was P1_STATE=2.
+- AIT302.Pv had an actual value of 446.764, compared with a forecast of 447.276. The absolute residual was 0.512207, equivalent to a normalised residual of 0.606. The recorded operating state was P3_STATE=99.
+- FIT201.Pv had an actual value of 2, compared with a forecast of 2. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+strong
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",1.0,3.0,3.0,4.0,3.0,1.0,3.0
+EVAL_030,"SUMMARY:
+A single-sensor deviation was detected: AIT402.Pv showed a small positive residual relative to a one-step persistence forecast, producing a system anomaly score just above the global threshold.
+
+EVIDENCE:
+- Sensor AIT402.Pv — actual 399.0515 vs predicted 399.2566; absolute residual 0.2051; normalized_residual 1.00010727625587
+- FIT201.Pv and FIT101.Pv — actual and predicted both 0.0; absolute residuals 0.0; normalized_residuals 0.0
+- Event window: 2022-11-10 11:45:00 to 2022-11-10 11:49:00; detection referenced at 2022-11-10 11:45:41 with 41 s detection delay
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state columns (P4_STATE=4 for AIT402.Pv, P2_STATE=2 for FIT201.Pv, P1_STATE=2 for FIT101.Pv) are provided as contextual metadata only and were not used in scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual indicates deviation from the detector's expected value but does not prove a sensor fault, equipment failure or cyberincident.
+- Only the supplied sensors and values are available; no additional measurements or external logs were provided.
+- Detector scoring used global, resolution-floored thresholds and one-step persistence forecasts; other forecasting methods or thresholds were not evaluated.
+- Process-state values were not used in detector scoring and must not be interpreted as influencing the anomaly decision.
+
+RECOMMENDED CHECKS:
+- Verify the AIT402.Pv measured value at or near 2022-11-10 11:45:41 in historical logs or historian to confirm the reading 399.0515.
+- Compare recent consecutive AIT402.Pv samples to check if the deviation is transient (consistent with one-step persistence residual) or persistent across multiple samples.
+- Inspect AIT402 sensor diagnostics (e.g., sensor status, calibration timestamp, communication quality) for any reported faults or warnings around the event time.
+- Review process logs or operator notes for any manual interventions or process changes in the P4 area around the event window that could explain the small change in AIT402.Pv.
+- If available, cross-check related process measurements (not supplied here) that would be expected to correlate with AIT402 to help determine whether the deviation is consistent with process behavior.",4.0,3.0,2.0,3.0,4.0,1.0,2.0
+EVAL_031,"SUMMARY:
+A short-lived residual anomaly was detected for sensor AIT402.Pv between 2022-11-11 09:59:00 and 10:01:00. The detector flagged AIT402.Pv because its measured value exceeded the one-step persistence prediction by 0.256343 units, producing a normalized residual equal to the system anomaly score (1.2499780571294685).
+
+EVIDENCE:
+- Sensor AIT402.Pv: actual=399.4873, predicted=399.230957, absolute_residual=0.2563430000000153, normalized_residual=1.2499780571294685
+- Sensor FIT201.Pv: actual=0.0, predicted=0.0, absolute_residual=0.0, normalized_residual=0.0
+- Sensor FIT101.Pv: actual=0.0, predicted=0.0, absolute_residual=0.0, normalized_residual=0.0
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P4_STATE=3 for AIT402.Pv, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used in detector scoring. The system anomaly score equals the maximum threshold-normalised residual across monitored sensors; it is not a probability or likelihood.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but does not prove a sensor fault, equipment issue or cyber incident.
+- The detector uses one-step persistence forecasting; prediction errors can arise from normal process changes not captured by persistence.
+- Global q=0.99 thresholds with a resolution floor can make small absolute residuals appear significant if the sensor threshold is small; normalized_residual values are detector ratios, not probabilities.
+- Only the named sensors in the evidence were evaluated; other sensors or logs are not available here.
+
+RECOMMENDED CHECKS:
+- Verify the timestamped AIT402.Pv measurement (399.4873 at ~2022-11-11 09:59:12) against raw instrument logs or historian to confirm the value and timing.
+- Check recent AIT402 calibration, trim and diagnostics for signs of drift or errors around the event time.
+- Review process logs and operator actions for changes in the unit associated with P4_STATE around 09:59 that could explain a real step or transient not captured by persistence forecasting.
+- Inspect upstream/downstream sensor readings and control setpoints for correlated changes near the event to determine whether the deviation is isolated.
+- If available, compare the same sensor behaviour immediately before and after the event window to see if the residual was transient or persistent.",1.0,2.0,2.0,3.0,2.0,0.0,9.0
+EVAL_032,"SUMMARY:
+A single-sensor anomaly was detected for AIT502.Pv between 2022-11-10 11:25:00 and 11:30:00. The detector flagged a residual deviation from a one-step persistence forecast: the measured value (499.897461) was lower than the predicted persistence value (500.205078), producing a normalized residual of 1.0909 which exceeded the global persistence threshold and produced the system anomaly score of 1.0909. Detection began 38 seconds after the reference timestamp.
+
+EVIDENCE:
+- AIT502.Pv — actual 499.897461 vs predicted 500.205078; absolute residual 0.307617; normalized residual 1.0909075047381156 (top contributor).
+- FIT201.Pv — actual 2.64889622 vs predicted 2.64928079; absolute residual 0.00038457; normalized residual 0.0011638551510059015 (low contribution).
+- FIT101.Pv — actual 0.0 vs predicted 0.0; absolute residual 0.0; normalized residual 0.0 (no contribution).
+- System anomaly score = 1.0909075047381156 (maximum threshold-normalised residual across monitored sensors).
+- Detector used one-step persistence forecasting and global q=0.99 residual thresholds with a sensor-resolution floor.
+
+OPERATING CONTEXT:
+Contextual metadata: process-state columns reported for sensors (AIT502.Pv: P5_STATE=12; FIT201.Pv: P2_STATE=2; FIT101.Pv: P1_STATE=2). These process-state values were not used to calculate the persistence prediction, residuals, thresholds or the system anomaly score.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the detector's expected value but is not proof of a sensor fault, equipment issue or cyberaction.
+- The detector is based on one-step persistence forecasting; it may flag short transient deviations that are operationally insignificant.
+- Global q=0.99 thresholds with a resolution floor may cause some sensors to trigger with small absolute deviations if their resolution floor is small.
+- Only the supplied sensor measurements and detector outputs were used; no external logs, process trends or corroborating measurements are available in the evidence.
+
+RECOMMENDED CHECKS:
+- Verify the raw AIT502.Pv measurements and recent history around 2022-11-10 11:25 to confirm the magnitude and duration of the deviation from 500.205078.
+- Check sensor diagnostics for AIT502 (e.g., calibration status, recent maintenance records, communication errors) to rule out measurement issues.
+- Inspect related process parameters and logs for P5_STATE=12 during the event window to identify any contemporaneous operational changes that could explain the deviation.
+- Review FIT201.Pv and FIT101.Pv trends to confirm they remained stable (they showed negligible residuals) and to look for correlated deviations.
+- If available, compare with redundant or upstream/downstream sensors measuring the same process to corroborate whether the deviation reflects a process change.",1.0,2.0,3.0,2.0,3.0,0.0,1.0
+EVAL_033,"SUMMARY:
+A short-lived residual anomaly was detected for sensor AIT402.Pv between 2022-11-11 10:53:00 and 10:56:00. The detector triggered because AIT402.Pv deviated from its one-step persistence forecast by 0.2051 units, producing a system anomaly score of 1.00010727625587 (the maximum threshold-normalised residual).
+
+EVIDENCE:
+- AIT402.Pv — actual 412.6378, predicted 412.4327, absolute residual 0.2051, normalised residual 1.00010727625587
+- FIT201.Pv — actual 0.0, predicted 0.0, absolute residual 0.0, normalised residual 0.0
+- FIT101.Pv — actual 0.0, predicted 0.0, absolute residual 0.0, normalised residual 0.0
+
+OPERATING CONTEXT:
+Detector used a one-step persistence forecast and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state columns (P4_STATE=3, P2_STATE=2, P1_STATE=2) are provided as contextual metadata only and were not used to compute predictions, residuals, thresholds or the system anomaly score. The system anomaly score equals the maximum threshold-normalised residual and is not a probability or confidence value.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A residual indicates deviation from the detector's expected value but is not proof of a sensor fault, equipment issue, or cyber incident.
+- Only sensors named in the evidence were available; no other measurements were considered.
+- The detector uses global, resolution-floored thresholds; very small absolute residuals can reach the threshold when divided by the floored threshold, which affects normalised residual magnitude.
+- Process-state values were not used in scoring and therefore do not imply causal linkage to the detected residual.
+
+RECOMMENDED CHECKS:
+- Verify the raw AIT402.Pv time series around 2022-11-11 10:53:00–10:56:00 to confirm the reported actual values and their timestamps.
+- Check recent calibration, wiring and diagnostics for the AIT402 sensor to rule out reporting or sensor drift as a contributor to the residual.
+- Review related process logs or operator notes for the P4 area around the event time for any manual interventions or state changes (contextual only).
+- Compare AIT402.Pv behavior to neighbouring or redundant sensors (if available) to see whether the deviation is isolated.
+- If repeated or larger residuals occur, consider increasing monitoring granularity or investigating system-level causes; treat this residual as an indicator requiring verification, not as a confirmed cause.",2.0,3.0,1.0,2.0,4.0,0.0,3
+EVAL_034,"SUMMARY:
+The detector raised an anomaly at 2022-11-10 11:03:18. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.182.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 495.95, compared with a forecast of 496.283. The absolute residual was 0.333232, equivalent to a normalised residual of 1.182. The recorded operating state was P5_STATE=12.
+- AIT402.Pv had an actual value of 389.157, compared with a forecast of 389.131. The absolute residual was 0.025635, equivalent to a normalised residual of 0.125. The recorded operating state was P4_STATE=4.
+- FIT201.Pv had an actual value of 0.0203761, compared with a forecast of 0.0203761. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",2.0,3.0,4.0,5.0,3.0,0.0,7
+EVAL_035,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:20:23. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.000.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 513.766, compared with a forecast of 513.484. The absolute residual was 0.282, equivalent to a normalised residual of 1.000. The recorded operating state was P5_STATE=7.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,2.0,4.0,5.0,3.0,0.0,8
+EVAL_036,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:53:07. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.000.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 412.638, compared with a forecast of 412.433. The absolute residual was 0.2051, equivalent to a normalised residual of 1.000. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,3.0,2.0,3.0,4.0,0.0,0
+EVAL_037,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:41:21. The strongest contribution came from AIT302.Pv, with a normalised residual of 1.061.
+
+EVIDENCE:
+- AIT302.Pv had an actual value of 420.36, compared with a forecast of 419.463. The absolute residual was 0.89633, equivalent to a normalised residual of 1.061. The recorded operating state was P3_STATE=7.
+- AIT402.Pv had an actual value of 410.151, compared with a forecast of 410.049. The absolute residual was 0.102545, equivalent to a normalised residual of 0.500. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 2.67799, compared with a forecast of 2.67799. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",5.0,3.0,2.0,3.0,4.0,0.0,7
+EVAL_038,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:47:35. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.250.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 411.561, compared with a forecast of 411.305. The absolute residual was 0.256348, equivalent to a normalised residual of 1.250. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,3.0,4.0,5.0,5.0,1.0,2
+EVAL_039,"SUMMARY:
+A short, localized deviation was detected for sensor FIT101.Pv beginning at 2022-11-11 10:09:00 and ending at 2022-11-11 10:12:00. The detector flagged the event 3 seconds after the reference timestamp because FIT101.Pv produced a residual that exceeds the global threshold when normalised by the detector's threshold floor.
+
+EVIDENCE:
+- Sensor FIT101.Pv — actual 4.971015 vs predicted 4.96845245; absolute residual 0.00256255; normalised residual 8.008969871243245 (top contributor).
+- Sensor FIT201.Pv — actual 0.0 vs predicted 0.0; absolute residual 0.0; normalised residual 0.0.
+- Sensor AIT302.Pv — actual 386.887756 vs predicted 386.887756; absolute residual 0.0; normalised residual 0.0.
+- System anomaly score (maximum threshold-normalised residual) = 8.008969871243245.
+- Event window: 2022-11-11 10:09:00 to 2022-11-11 10:12:00; detection delay: 3.0 seconds.
+
+OPERATING CONTEXT:
+Detector used one-step persistence forecasting and global q=0.99 residual thresholds with a sensor-resolution floor. Process-state values (P1_STATE=2, P2_STATE=2, P3_STATE=99) are provided as contextual metadata only and were not used in detector scoring.
+
+CONFIDENCE:
+moderate
+
+LIMITATIONS:
+- A forecasting residual indicates deviation from the model's expected value but does not by itself establish a cause (e.g., sensor fault, equipment issue, or cyber incident).
+- The detector score is a threshold-normalised residual (not a probability or likelihood).
+- Process-state values were not used to compute the residuals or system anomaly score and therefore do not confirm causation.
+- Only the named sensors in the evidence were provided; there may be unmonitored variables or additional context not present here.
+
+RECOMMENDED CHECKS:
+- Verify raw FIT101.Pv measurements around 2022-11-11 10:09:00–10:12:00 from primary and redundant data sources or historian to confirm the reported values.
+- Confirm sensor FIT101.Pv hardware and communications (wiring, transmitter status, gateway logs) for transient faults or timestamp anomalies during the event window.
+- Compare FIT101.Pv behaviour to related flow or control signals (if available) to see if the small absolute deviation (~0.00256) corresponds to expected process changes or measurement noise.
+- Review system and application logs for any maintenance actions, configuration changes, or alarms coincident with the event time.
+- If FIT101.Pv has recent calibration records, check calibration status and expected measurement resolution to assess whether the residual magnitude is meaningful relative to sensor precision.",3.0,4.0,5.0,3.0,2.0,1.0,2
+EVAL_040,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 10:29:30. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.000.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 407.947, compared with a forecast of 407.742. The absolute residual was 0.2051, equivalent to a normalised residual of 1.000. The recorded operating state was P4_STATE=3.
+- FIT201.Pv had an actual value of 0, compared with a forecast of 0. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+- FIT101.Pv had an actual value of 3, compared with a forecast of 3. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P1_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,4.0,5.0,4.0,3.0,0.0,4
+EVAL_041,"SUMMARY:
+The detector raised an anomaly at 2022-11-11 11:16:11. The strongest contribution came from AIT402.Pv, with a normalised residual of 1.125.
+
+EVIDENCE:
+- AIT402.Pv had an actual value of 417.611, compared with a forecast of 417.38. The absolute residual was 0.230713, equivalent to a normalised residual of 1.125. The recorded operating state was P4_STATE=3.
+- AIT502.Pv had an actual value of 524.353, compared with a forecast of 524.43. The absolute residual was 0.0769, equivalent to a normalised residual of 0.273. The recorded operating state was P5_STATE=7.
+- FIT201.Pv had an actual value of 2.65082, compared with a forecast of 2.65223. The absolute residual was 0.00140977, equivalent to a normalised residual of 0.004. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",3.0,1.0,2.0,4.0,5.0,1.0,
+EVAL_042,"SUMMARY:
+The detector raised an anomaly at 2022-11-10 11:34:21. The strongest contribution came from AIT502.Pv, with a normalised residual of 1.182.
+
+EVIDENCE:
+- AIT502.Pv had an actual value of 502.461, compared with a forecast of 502.128. The absolute residual was 0.333245, equivalent to a normalised residual of 1.182. The recorded operating state was P5_STATE=12.
+- AIT302.Pv had an actual value of 419.259, compared with a forecast of 420.027. The absolute residual was 0.7683, equivalent to a normalised residual of 0.909. The recorded operating state was P3_STATE=99.
+- FIT201.Pv had an actual value of 0.000128152, compared with a forecast of 0.000128152. The absolute residual was 0, equivalent to a normalised residual of 0.000. The recorded operating state was P2_STATE=2.
+
+OPERATING CONTEXT:
+The explanation uses the recorded process states included in the sensor evidence.
+
+CONFIDENCE:
+weak
+
+LIMITATIONS:
+- The residual indicates deviation from the forecast but does not establish the root cause.
+- The detector does not prove that the deviation was caused by a cyberattack.
+
+RECOMMENDED CHECKS:
+- Review the affected sensor and related process-stage measurements.
+- Check associated actuators, alarms and maintenance records around the timestamp.",4.0,3.0,4.0,5.0,2.0,1.0,2

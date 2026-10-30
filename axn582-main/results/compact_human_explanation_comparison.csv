@@ -1,0 +1,6 @@
+metric,Rule-based mean,Rule-based SD,Rule-based median,LLM-assisted mean,LLM-assisted SD,LLM-assisted median,LLM minus rule mean
+Groundedness,2.81,1.209,3.0,2.381,1.396,2.0,-0.429
+Technical correctness,2.952,1.117,3.0,2.571,0.978,2.0,-0.381
+Clarity,3.476,0.981,4.0,2.524,1.167,2.0,-0.952
+Usefulness,3.381,1.117,3.0,2.714,1.007,3.0,-0.667
+Appropriate uncertainty,2.762,1.411,3.0,3.286,0.845,3.0,0.524

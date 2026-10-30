@@ -1,0 +1,5 @@
+dataset_split,explanation_method,n,Groundedness,Technical correctness,Clarity,Usefulness,Appropriate uncertainty,human_hallucination_rate
+cross_day_10nov,LLM-assisted,4,2.5,3.0,2.5,2.5,3.5,0.5
+cross_day_10nov,Rule-based,4,3.5,4.0,4.0,3.5,2.0,0.75
+development_11nov,LLM-assisted,17,2.353,2.471,2.529,2.765,3.235,0.529
+development_11nov,Rule-based,17,2.647,2.706,3.353,3.353,2.941,0.647

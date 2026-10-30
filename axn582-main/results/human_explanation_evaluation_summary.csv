@@ -1,0 +1,11 @@
+explanation_method,metric,n,mean,std,median,minimum,maximum
+Rule-based,Groundedness,21,2.81,1.209,3.0,1.0,5.0
+Rule-based,Technical correctness,21,2.952,1.117,3.0,1.0,5.0
+Rule-based,Clarity,21,3.476,0.981,4.0,2.0,5.0
+Rule-based,Usefulness,21,3.381,1.117,3.0,1.0,5.0
+Rule-based,Appropriate uncertainty,21,2.762,1.411,3.0,1.0,5.0
+LLM-assisted,Groundedness,21,2.381,1.396,2.0,1.0,5.0
+LLM-assisted,Technical correctness,21,2.571,0.978,2.0,1.0,5.0
+LLM-assisted,Clarity,21,2.524,1.167,2.0,1.0,5.0
+LLM-assisted,Usefulness,21,2.714,1.007,3.0,1.0,5.0
+LLM-assisted,Appropriate uncertainty,21,3.286,0.845,3.0,2.0,5.0

@@ -1,0 +1,10 @@
+check,passed
+exactly_one_primary_detector,True
+21_explanation_payloads,True
+21_llm_explanations,True
+all_llm_generations_completed,True
+21_automatic_audits,True
+automatic_audit_passed,True
+42_human_reviews,True
+human_ratings_complete,True
+all_final_files_exist,True

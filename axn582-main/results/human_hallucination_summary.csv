@@ -1,0 +1,3 @@
+explanation_method,n_explanations,hallucination_flags,hallucination_rate,hallucination_rate_percentage
+LLM-assisted,21,11.0,0.5238095238095238,52.38
+Rule-based,21,14.0,0.6666666666666666,66.67

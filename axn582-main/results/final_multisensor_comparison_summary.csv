@@ -1,0 +1,3 @@
+dataset,model,quantile,min_sensors_triggered,accuracy,attack_precision,attack_recall,attack_f1,false_alarm_rate,detected_events,total_events,event_detection_rate,average_detection_delay,median_detection_delay,max_detection_delay
+11 Nov,Multi-sensor voting residual detector,0.95,1,0.5925096682271525,0.3674251497005988,0.5295132896099414,0.4338235294117647,38.11516813392986,17,17,100.0,5.352941176470588,0.0,35.0
+10 Nov,Multi-sensor voting residual detector,0.95,1,0.4263888888888889,0.36827852998065763,0.6878612716763006,0.47971781305114636,73.6913357400722,4,4,100.0,4.25,3.0,11.0

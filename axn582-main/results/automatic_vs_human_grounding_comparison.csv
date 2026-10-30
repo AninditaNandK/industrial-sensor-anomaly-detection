@@ -1,0 +1,6 @@
+measure,count,percentage
+LLM explanations evaluated,21,100.0
+Automatic grounding passes,21,100.0
+Human reviews with no unsupported claim,10,47.62
+Human reviews flagging unsupported content,11,52.38
+Automatic pass but human flag,11,52.38

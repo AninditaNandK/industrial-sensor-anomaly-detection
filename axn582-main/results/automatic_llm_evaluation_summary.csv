@@ -1,0 +1,9 @@
+metric,count,percentage
+Explanations generated,21,100.0
+Schema-complete explanations,21,100.0
+Valid confidence labels,21,100.0
+Explanations with unknown sensors,0,0.0
+Unsupported causal-claim flags,0,0.0
+Unsupported attack-type flags,0,0.0
+Incorrect state-scoring flags,0,0.0
+Automatic grounding passes,21,100.0

@@ -1,0 +1,8 @@
+metric,LLM-assisted,Rule-based
+Automatic grounding pass (%),100.0,
+Mean groundedness (1–5),2.381,2.81
+Mean technical correctness (1–5),2.571,2.952
+Mean clarity (1–5),2.524,3.476
+Mean usefulness (1–5),2.714,3.381
+Mean appropriate uncertainty (1–5),3.286,2.762
+Human hallucination rate (%),52.381,66.667

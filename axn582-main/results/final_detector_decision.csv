@@ -1,0 +1,5 @@
+model_row_level,false_alarm_rate,attack_recall,attack_f1,average_detection_delay,events_with_any_hit,events_with_3_or_more_alarm_rows,events_with_2_consecutive_alarm_rows,robustly_detected_events,mean_event_alarm_coverage_percentage,mean_longest_alarm_run,role,selected_as_primary
+Frozen resolution-floored persistence q=0.99,8.250226654578423,0.11632947976878613,0.18645049218297627,29.5,4,4,3,3,14.569646599395456,5.75,Primary balanced detector,1
+Frozen normal-only RF first difference q=0.99,7.57026291931097,0.0657514450867052,0.11084043848964677,33.5,4,4,4,4,7.414621712331016,6.25,Secondary RF comparison,0
+Frozen selected persistence subset,1.5865820489573892,0.02384393063583815,0.045454545454545456,70.0,4,4,1,1,2.3944465380721214,1.25,Low-alarm ablation,0
+Frozen selected RF subset,1.314596554850408,0.01878612716763006,0.03613620569840167,92.5,4,4,2,2,1.8870694502160643,1.5,Low-alarm RF ablation,0

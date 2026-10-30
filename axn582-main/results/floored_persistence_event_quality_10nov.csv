@@ -1,0 +1,5 @@
+model,attack_event,start_time,end_time,total_event_rows,alarm_rows,alarm_coverage_percentage,alarm_episodes,longest_consecutive_alarm_run,first_detection_time,first_detection_delay_seconds,maximum_anomaly_score,any_hit_detected,detected_at_least_3_rows,detected_at_least_1_percent,detected_with_2_consecutive_rows,robust_combined_detection
+Frozen resolution-floored persistence,1,2022-11-10 11:03:00,2022-11-10 11:10:00,421,17,4.038004750593824,16,2,2022-11-10 11:03:18,18.0,1.5000146285801694,1,1,1,1,1
+Frozen resolution-floored persistence,2,2022-11-10 11:25:00,2022-11-10 11:30:00,301,13,4.318936877076411,11,2,2022-11-10 11:25:38,38.0,8.01113788890916,1,1,1,1,1
+Frozen resolution-floored persistence,3,2022-11-10 11:34:00,2022-11-10 11:41:00,421,25,5.938242280285035,25,1,2022-11-10 11:34:21,21.0,2.2500512000312862,1,1,1,0,0
+Frozen resolution-floored persistence,4,2022-11-10 11:45:00,2022-11-10 11:49:00,241,106,43.983402489626556,39,18,2022-11-10 11:45:41,41.0,1921.9007063402448,1,1,1,1,1

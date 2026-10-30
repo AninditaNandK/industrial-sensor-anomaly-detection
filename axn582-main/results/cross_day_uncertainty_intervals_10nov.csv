@@ -1,0 +1,5 @@
+model,n_events,event_rate_%,event_rate_95CI,false_alarm_%,false_alarm_95CI
+Frozen persistence — all sensors,4,100.0,"[39.8, 100.0]",8.25,"[3.76, 14.46]"
+Frozen RF difference — all sensors,4,100.0,"[39.8, 100.0]",7.57,"[5.35, 10.25]"
+Frozen persistence — subset,4,100.0,"[39.8, 100.0]",1.59,"[0.82, 2.22]"
+Frozen RF difference — subset,4,100.0,"[39.8, 100.0]",1.31,"[0.68, 1.90]"

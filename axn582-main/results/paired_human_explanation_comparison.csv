@@ -1,0 +1,6 @@
+metric,paired_events,llm_mean,rule_mean,mean_difference_llm_minus_rule,median_difference_llm_minus_rule,llm_higher_count,equal_count,rule_higher_count,wilcoxon_statistic,p_value
+Groundedness,21,2.381,2.8095,-0.4286,0.0,6,6,9,42.0,0.2997
+Technical correctness,21,2.5714,2.9524,-0.381,0.0,6,6,9,38.0,0.201
+Clarity,21,2.5238,3.4762,-0.9524,-1.0,2,7,12,9.0,0.0052
+Usefulness,21,2.7143,3.381,-0.6667,-1.0,5,5,11,34.5,0.0791
+Appropriate uncertainty,21,3.2857,2.7619,0.5238,1.0,12,4,5,52.5,0.2483
